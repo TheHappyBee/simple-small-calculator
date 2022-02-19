@@ -1,6 +1,7 @@
 # simple-small-calculator
 
-The smallest, the simplest of all calculators. 
+The smallest, the simplest of all calculators. Yet *no-a-drab* calculator 
+
 Behold the purely html calculator that is able to fit in any of your blog space using <Iframe>.
 
 If you do see any errors, feel free to make a issue or instead pull a request 
