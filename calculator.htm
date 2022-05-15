@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+<title>Calculator by David</title>
+<meta charset="UTF-8">
+
+
+<style type="text/css">
+.add-button {
+	padding: 1.5px 1px;
+	background-color:  white;
+	border: 5px solid red;
+	border-radius: 12px
+	display: incline-block;
+	font-size: 15px;
+	color: black;
+	
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.add-button:hover {
+	padding: 2px 1px;
+	background-color: red;
+	border: 5px solid red;
+	border-radius: 12px
+	display: incline-block;
+	font-size: 15px;
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	
+}
+.input-element{
+	font-size: 20px; 
+	width: 100px;
+	position:absolute;
+	left:20px;
+}
+.calculator {
+border:2px solid black;
+ background-color:grey;
+ height:200px;
+ width:130px;
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.operation-button {
+  width: 23px;
+  height:30px;
+  background-color: white; 
+  color: black;
+  position:absolute;
+  
+  border: 2px solid #4CAF50;
+}
+.operation-button:hover {
+  
+  background-color: green; 
+  color: white; 
+  border: 2px solid #4CAF50;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.text {
+	color:white;
+	position:absolute;
+	left:30px;
+}
+.super-button {
+	height: 24px;
+	width: 36.5px;
+	background-color:  white;
+	border: 5px solid blue;
+	border-radius: 12px
+	display: incline-block;
+	font-size: 10px;
+	color: black;
+	
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.super-button:hover {
+	height: 24px;
+	width: 36.5px;
+	background-color:  blue;
+	border: 5px solid blue;
+	border-radius: 12px
+	display: incline-block;
+	font-size: 10px;
+	color: white;
+	
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
+}
+</style>
+<head>
+
+<body>
+
+<article class="calculator">
+
+<label for="fname" class="text">Calculator:</label><br>
+<input type="text" id="input" class="input-element" value="0"><br>
+<script >
+function AC() {
+	document.getElementById("input").value = "0";
+}
+function addnumber(number) {
+	var value = document.getElementById("input").value
+	if (value == "0") {
+		document.getElementById("input").value = number;
+	}
+	else {
+		if (value.length < 10) {
+			document.getElementById("input").value += number;
+		}
+		 
+	}
+}
+function calc() {
+	function calculate(fn) {
+		return new Function('return ' + fn)();
+	}
+	var value = document.getElementById("input").value;
+	try {
+		document.getElementById("input").value = calculate(value);
+	} catch(err) {
+		alert("error!");
+		document.getElementById("input").value = "0";
+	}
+	
+}
+</script>
+<button style = "position:absolute;left: 92px;top:60px;"class = "add-button" id="clear-AC" onclick="AC()">AC</button>
+<button style = "position:absolute;left: 92px;top:91px;"class = "super-button" id="add" onclick="addnumber('+')"> + </button>
+<button style = "position:absolute;left: 92px;top:116px;"class = "super-button" id="minus" onclick="addnumber('-')"> - </button>
+<button style = "position:absolute;left: 92px;top:141px;"class = "super-button" id="multiply" onclick="addnumber('*')"> x </button>
+<button style = "position:absolute;left: 92px;top:163px;"class = "super-button" id="divide" onclick="addnumber('/')"> ÷ </button>
+<button style = "position:absolute;left: 45px;top:155px;width:40.5px;"class = "add-button" id="calculate" onclick="calc()"> = </button>
+<button style = "position:absolute;left: 19.5px;top: 60px;"class="operation-button" id="add-number" onclick="addnumber(1)">1</button>
+<button style = "position:absolute;left: 43.5px;top: 60px;"class="operation-button" id="add-number" onclick="addnumber(2)">2</button>
+<button style = "position:absolute;left: 67.5px;top: 60px;"class="operation-button" id="add-number" onclick="addnumber(3)">3</button>
+<button style = "position:absolute;left: 19.5px;top: 92px;"class="operation-button" id="add-number" onclick="addnumber(4)">4</button>
+<button style = "position:absolute;left: 43.5px;top: 92px;"class="operation-button" id="add-number" onclick="addnumber(5)">5</button>
+<button style = "position:absolute;left: 67.5px;top: 92px;"class="operation-button" id="add-number" onclick="addnumber(6)">6</button>
+<button style = "position:absolute;left: 19.5px;top: 124px;"class="operation-button" id="add-number" onclick="addnumber(7)">7</button>
+<button style = "position:absolute;left: 43.5px;top: 124px;"class="operation-button" id="add-number" onclick="addnumber(8)">8</button>
+<button style = "position:absolute;left: 67.5px;top: 124px;"class="operation-button" id="add-number" onclick="addnumber(9)">9</button>
+<button style = "position:absolute;left: 19.5px;top: 156px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);"class="operation-button" id="add-number" onclick="addnumber(0)">0</button>
+
+</article>
+</body>
